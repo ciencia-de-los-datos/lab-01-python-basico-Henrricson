@@ -9,6 +9,7 @@ básicas.
 
 Utilice el archivo `data.csv` para resolver las preguntas.
 
+
 """
 
 # try:
@@ -22,13 +23,12 @@ Utilice el archivo `data.csv` para resolver las preguntas.
 ##############
 
 
-# if clave in diccionario:
-
-
 ############################################################
 # Retorne la suma de la segunda columna.
-def pregunta_01(datos):
-
+def pregunta_01():
+    with open("./data.csv", "r") as archivo:
+        # Lee todas las líneas del archivo
+        datos = archivo.readlines()
     suma = 0
     for dato in datos:
         dato = dato.split()
@@ -41,7 +41,10 @@ def pregunta_01(datos):
 # de tuplas (letra, cantidad), ordendas alfabéticamente.
 
 
-def pregunta_02(datos):
+def pregunta_02():
+    with open("./data.csv", "r") as archivo:
+        # Lee todas las líneas del archivo
+        datos = archivo.readlines()
     conteoLetras = {}
     for dato in datos:
         dato = dato.split()
@@ -72,7 +75,10 @@ def pregunta_02(datos):
 # de tuplas (letra, suma) ordendas alfabeticamente.
 
 
-def pregunta_03(datos):
+def pregunta_03():
+    with open("./data.csv", "r") as archivo:
+        # Lee todas las líneas del archivo
+        datos = archivo.readlines()
     suma_por_letra = {}
 
     for dato in datos:
@@ -101,7 +107,10 @@ def pregunta_03(datos):
 ##############################################################
 # La columna 3 contiene una fecha en formato `YYYY-MM-DD`. Retorne la cantidad de
 # registros por cada mes, tal como se muestra a continuación.
-def pregunta_04(datos):
+def pregunta_04():
+    with open("./data.csv", "r") as archivo:
+        # Lee todas las líneas del archivo
+        datos = archivo.readlines()
     registroPorMes = {}
 
     for dato in datos:
@@ -140,7 +149,10 @@ def pregunta_04(datos):
 # letra de la columa 1.
 
 
-def pregunta_05(datos):
+def pregunta_05():
+    with open("./data.csv", "r") as archivo:
+        # Lee todas las líneas del archivo
+        datos = archivo.readlines()
 
     diccionario = {}
 
@@ -176,7 +188,10 @@ def pregunta_05(datos):
 #     grande computados sobre todo el archivo.
 
 
-def pregunta_06(datos):
+def pregunta_06():
+    with open("./data.csv", "r") as archivo:
+        # Lee todas las líneas del archivo
+        datos = archivo.readlines()
 
     min_max_valores = {}
 
@@ -231,7 +246,10 @@ def pregunta_06(datos):
 # a dicho valor de la columna 2.
 
 
-def pregunta_07(datos):
+def pregunta_07():
+    with open("./data.csv", "r") as archivo:
+        # Lee todas las líneas del archivo
+        datos = archivo.readlines()
     valores_letras = {}
 
     for line in datos:
@@ -243,6 +261,7 @@ def pregunta_07(datos):
         else:
             valores_letras[clave] = [letra]
     resultado = sorted(valores_letras.items(), key=lambda x: x[0])
+    resultado = [(int(numero), lista) for numero, lista in resultado]
     return resultado
 
 
@@ -270,7 +289,10 @@ def pregunta_07(datos):
 # valor de la segunda columna.
 
 
-def pregunta_08(datos):
+def pregunta_08():
+    with open("./data.csv", "r") as archivo:
+        # Lee todas las líneas del archivo
+        datos = archivo.readlines()
     valores_letras = {}
 
     for line in datos:
@@ -284,7 +306,7 @@ def pregunta_08(datos):
             valores_letras[clave] = [letra]
 
     resultado = sorted(valores_letras.items(), key=lambda x: x[0])
-    resultado = [(valor, sorted(letras)) for valor, letras in resultado]
+    resultado = [(int(valor), sorted(letras)) for valor, letras in resultado]
     return resultado
 
 
@@ -308,7 +330,10 @@ def pregunta_08(datos):
     """
 
 
-def pregunta_09(datos):
+def pregunta_09():
+    with open("./data.csv", "r") as archivo:
+        # Lee todas las líneas del archivo
+        datos = archivo.readlines()
     diccionario = {}
     for linea in datos:
         linea = linea.split()
@@ -319,7 +344,7 @@ def pregunta_09(datos):
                 diccionario[clave] += 1
             else:
                 diccionario[clave] = 1
-    resultado = sorted(diccionario.items(), key=lambda x: x[0])
+    resultado = {k: diccionario[k] for k in sorted(diccionario)}
     return resultado
 
 
@@ -346,7 +371,10 @@ def pregunta_09(datos):
 # cantidad de elementos de las columnas 4 y 5.
 
 
-def pregunta_10(datos):
+def pregunta_10():
+    with open("./data.csv", "r") as archivo:
+        # Lee todas las líneas del archivo
+        datos = archivo.readlines()
     contenido = []
     for dato in datos:
         dato = dato.split()
@@ -375,7 +403,10 @@ def pregunta_10(datos):
 # columna 4, ordenadas alfabeticamente.
 
 
-def pregunta_11(datos):
+def pregunta_11():
+    with open("./data.csv", "r") as archivo:
+        # Lee todas las líneas del archivo
+        datos = archivo.readlines()
     diccionario = {}
     for linea in datos:
         linea = linea.split()
@@ -414,7 +445,10 @@ def pregunta_11(datos):
 #  los valores de la columna 5 sobre todo el archivo.
 
 
-def pregunta_12(datos):
+def pregunta_12():
+    with open("./data.csv", "r") as archivo:
+        # Lee todas las líneas del archivo
+        datos = archivo.readlines()
     diccionario = {}
     for linea in datos:
         linea = linea.split()
@@ -442,44 +476,3 @@ def pregunta_12(datos):
     }
 
     """
-
-
-# if __name__ == "__main__":
-
-try:
-
-    with open("./data.csv", "r") as archivo:
-        # Lee todas las líneas del archivo
-        datos = archivo.readlines()
-    # print("respuesta 1")
-    print(pregunta_01(datos))
-    # print("respuesta 2")
-    print(pregunta_02(datos))
-    # print("respuesta 3")
-    print(pregunta_03(datos))
-    # print("respuesta 4")
-    print(pregunta_04(datos))
-    # print("respuesta 5")
-    print(pregunta_05(datos))
-    # print("respuesta 6")
-    print(pregunta_06(datos))
-    # print("respuesta 7")
-    print(pregunta_07(datos))
-    # print("respuesta 8")
-    print(pregunta_08(datos))
-    # print("respuesta 9")
-    print(pregunta_09(datos))
-    # print("respuesta 10")
-    print(pregunta_10(datos))
-    # print("respuesta 11")
-    print(pregunta_11(datos))
-    # print("respuesta 12")
-    print(pregunta_12(datos))
-except (
-    FileNotFoundError,
-    ZeroDivisionError,
-    ValueError,
-    TypeError,
-    IndexError,
-) as error:
-    print("se produjo un error", error)
