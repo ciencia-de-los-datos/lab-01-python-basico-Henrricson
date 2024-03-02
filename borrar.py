@@ -12,12 +12,9 @@ Utilice el archivo `data.csv` para resolver las preguntas.
 
 """
 
-# try:
-#     with open("./data.csv", "r") as archivo:
-#         # Lee todas las líneas del archivo
-#         datos = archivo.readlines()
-# except FileNotFoundError:
-#     print("Error: el archivo no existe")
+with open("./data.csv", "r") as archivo:
+    # Lee todas las líneas del archivo
+    datos = archivo.readlines()
 
 
 ##############
@@ -29,11 +26,9 @@ Utilice el archivo `data.csv` para resolver las preguntas.
 ############################################################
 # Retorne la suma de la segunda columna.
 def pregunta_01(datos):
-
     suma = 0
     for dato in datos:
-        dato = dato.split()
-        suma = suma + int(dato[1])
+        suma = suma + int(dato[2])
     return suma
 
 
@@ -45,7 +40,6 @@ def pregunta_01(datos):
 def pregunta_02(datos):
     conteoLetras = {}
     for dato in datos:
-        dato = dato.split()
         letra = dato[0]
         if letra in conteoLetras:
             conteoLetras[letra] += 1
@@ -181,6 +175,7 @@ def pregunta_06(datos):
 
     min_max_valores = {}
 
+    # Iterar sobre cada línea de datos
     for line in datos:
         line = line.split()
 
@@ -380,14 +375,14 @@ def pregunta_11(datos):
     diccionario = {}
     for linea in datos:
         linea = linea.split()
-        columna2 = int(linea[1])
+        columna2 = linea[1]
 
         columna4 = linea[3].split(",")
         for letra in columna4:
             if letra in diccionario:
-                diccionario[letra] += columna2
+                diccionario[letra] += int(columna2)
             else:
-                diccionario[letra] = columna2
+                diccionario[letra] = int(columna2)
 
     resultado = {k: diccionario[k] for k in sorted(diccionario)}
     return resultado
@@ -421,7 +416,11 @@ def pregunta_12(datos):
         linea = linea.split()
         dato = linea[4].split(",")
         letra = linea[0]
-        suma = sum(int(valor.split(":")[1]) for valor in dato)
+        suma = 0
+        for clave_valor in dato:
+            clave, valor = clave_valor.split(":")
+            suma += int(valor)
+            # diccionario[letra] += int(valor)
         if letra in diccionario:
             diccionario[letra] += suma
         else:
@@ -445,68 +444,57 @@ def pregunta_12(datos):
     """
 
 
-# print("respuesta 1")
-# print(pregunta_01(datos))
-# print("respuesta 2")
-# print(pregunta_02(datos))
-# print("respuesta 3")
-# print(pregunta_03(datos))
-# print("respuesta 4")
-# print(pregunta_04(datos))
-# print("respuesta 5")
-# print(pregunta_05(datos))
-# print("respuesta 6")
-# print(pregunta_06(datos))
-# print("respuesta 7")
-# print(pregunta_07(datos))
-# print("respuesta 8")
-# print(pregunta_08(datos))
-# print("respuesta 9")
-# print(pregunta_09(datos))
-# print("respuesta 10")
-# print(pregunta_10(datos))
-# print("respuesta 11")
-# print(pregunta_11(datos))
-# print("respuesta 12")
-# print(pregunta_12(datos))
+print("respuesta 1")
+print(pregunta_01(datos))
+print("respuesta 2")
+print(pregunta_02(datos))
+print("respuesta 3")
+print(pregunta_03(datos))
+print("respuesta 4")
+print(pregunta_04(datos))
+print("respuesta 5")
+print(pregunta_05(datos))
+print("respuesta 6")
+print(pregunta_06(datos))
+print("respuesta 7")
+print(pregunta_07(datos))
+print("respuesta 8")
+print(pregunta_08(datos))
+print("respuesta 9")
+print(pregunta_09(datos))
+print("respuesta 10")
+print(pregunta_10(datos))
+print("respuesta 11")
+print(pregunta_11(datos))
+print("respuesta 12")
+print(pregunta_12(datos))
 
+# if __name__ == "main()":
+#     archivo = open("./data.csv", "r")
+#     # Lee todas las líneas del archivo
+#     datos = archivo.readlines()
 
-if __name__ == "__main__":
-
-    try:
-
-        with open("./data.csv", "r") as archivo:
-            # Lee todas las líneas del archivo
-            datos = archivo.readlines()
-        print("respuesta 1")
-        print(pregunta_01(datos))
-        print("respuesta 2")
-        print(pregunta_02(datos))
-        print("respuesta 3")
-        print(pregunta_03(datos))
-        print("respuesta 4")
-        print(pregunta_04(datos))
-        print("respuesta 5")
-        print(pregunta_05(datos))
-        print("respuesta 6")
-        print(pregunta_06(datos))
-        print("respuesta 7")
-        print(pregunta_07(datos))
-        print("respuesta 8")
-        print(pregunta_08(datos))
-        print("respuesta 9")
-        print(pregunta_09(datos))
-        print("respuesta 10")
-        print(pregunta_10(datos))
-        print("respuesta 11")
-        print(pregunta_11(datos))
-        print("respuesta 12")
-        print(pregunta_12(datos))
-    except (
-        FileNotFoundError,
-        ZeroDivisionError,
-        ValueError,
-        TypeError,
-        IndexError,
-    ) as error:
-        print("se produjo un error", error)
+#     print("respuesta 1")
+#     print(pregunta_01(datos))
+#     print("respuesta 2")
+#     print(pregunta_02(datos))
+#     print("respuesta 3")
+#     print(pregunta_03(datos))
+#     print("respuesta 4")
+#     print(pregunta_04(datos))
+#     print("respuesta 5")
+#     print(pregunta_05(datos))
+#     print("respuesta 6")
+#     print(pregunta_06(datos))
+#     print("respuesta 7")
+#     print(pregunta_07(datos))
+#     print("respuesta 8")
+#     print(pregunta_08(datos))
+#     print("respuesta 9")
+#     print(pregunta_09(datos))
+#     print("respuesta 10")
+#     print(pregunta_10(datos))
+#     print("respuesta 11")
+#     print(pregunta_11(datos))
+#     print("respuesta 12")
+#     print(pregunta_12(datos))
