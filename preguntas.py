@@ -445,68 +445,42 @@ def pregunta_12(datos):
     """
 
 
-# print("respuesta 1")
-# print(pregunta_01(datos))
-# print("respuesta 2")
-# print(pregunta_02(datos))
-# print("respuesta 3")
-# print(pregunta_03(datos))
-# print("respuesta 4")
-# print(pregunta_04(datos))
-# print("respuesta 5")
-# print(pregunta_05(datos))
-# print("respuesta 6")
-# print(pregunta_06(datos))
-# print("respuesta 7")
-# print(pregunta_07(datos))
-# print("respuesta 8")
-# print(pregunta_08(datos))
-# print("respuesta 9")
-# print(pregunta_09(datos))
-# print("respuesta 10")
-# print(pregunta_10(datos))
-# print("respuesta 11")
-# print(pregunta_11(datos))
-# print("respuesta 12")
-# print(pregunta_12(datos))
+# if __name__ == "__main__":
 
+try:
 
-if __name__ == "__main__":
-
-    try:
-
-        with open("./data.csv", "r") as archivo:
-            # Lee todas las líneas del archivo
-            datos = archivo.readlines()
-        print("respuesta 1")
-        print(pregunta_01(datos))
-        print("respuesta 2")
-        print(pregunta_02(datos))
-        print("respuesta 3")
-        print(pregunta_03(datos))
-        print("respuesta 4")
-        print(pregunta_04(datos))
-        print("respuesta 5")
-        print(pregunta_05(datos))
-        print("respuesta 6")
-        print(pregunta_06(datos))
-        print("respuesta 7")
-        print(pregunta_07(datos))
-        print("respuesta 8")
-        print(pregunta_08(datos))
-        print("respuesta 9")
-        print(pregunta_09(datos))
-        print("respuesta 10")
-        print(pregunta_10(datos))
-        print("respuesta 11")
-        print(pregunta_11(datos))
-        print("respuesta 12")
-        print(pregunta_12(datos))
-    except (
-        FileNotFoundError,
-        ZeroDivisionError,
-        ValueError,
-        TypeError,
-        IndexError,
-    ) as error:
-        print("se produjo un error", error)
+    with open("./data.csv", "r") as archivo:
+        # Lee todas las líneas del archivo
+        datos = archivo.readlines()
+    # print("respuesta 1")
+    print(pregunta_01(datos))
+    # print("respuesta 2")
+    print(pregunta_02(datos))
+    # print("respuesta 3")
+    print(pregunta_03(datos))
+    # print("respuesta 4")
+    print(pregunta_04(datos))
+    # print("respuesta 5")
+    print(pregunta_05(datos))
+    # print("respuesta 6")
+    print(pregunta_06(datos))
+    # print("respuesta 7")
+    print(pregunta_07(datos))
+    # print("respuesta 8")
+    print(pregunta_08(datos))
+    # print("respuesta 9")
+    print(pregunta_09(datos))
+    # print("respuesta 10")
+    print(pregunta_10(datos))
+    # print("respuesta 11")
+    print(pregunta_11(datos))
+    # print("respuesta 12")
+    print(pregunta_12(datos))
+except (
+    FileNotFoundError,
+    ZeroDivisionError,
+    ValueError,
+    TypeError,
+    IndexError,
+) as error:
+    print("se produjo un error", error)
